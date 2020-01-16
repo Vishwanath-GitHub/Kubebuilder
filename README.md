@@ -11,7 +11,7 @@ Changes that Kubebuilder contains as compared to Operator-SDK:
 * It supports Multi-Version API.
 * It has "Makefile".
 
-##Kubebuilder Cronjob Implementation
+## Kubebuilder Cronjob Implementation
 This **Kubebuilder Cronjob Implementation** is the direct implementation from the [Kubebuilder Cronjob Tutorial](https://book.kubebuilder.io/cronjob-tutorial/cronjob-tutorial.html) featuring the same file struture. This Operator implementation is done for Cronjob in a way that when we deploy the Cronjob from it's .yaml file, the Operator/Controller gets the information of the Cronjob in a `struct{}` and which contains the Cronjob Schedule, it's starting deadline seconds, job history and concurrency policy. The `Reconcile()` function of the Controller\Operator sets the Clock in which it declares and defines how to deploy the Cronjob and get information about it.
 
 After this, the entire Operator/Controller with its configuration is deployed using `make install` and `make run` locally (outside the cluster). To deploy it inside the cluster, use `make docker-build` and `make deploy`. After deploying the contoller, it starts watching the events from the workload and shows it by logs of the Operator/Controller pod. Now, when the Cronjob .yaml is applied, the logs start updating with the status about and from the Cronjob and now this Operator\Controller will manager and monitor this Cronjob.
