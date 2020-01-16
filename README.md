@@ -16,4 +16,6 @@ This **Kubebuilder Cronjob Implementation** is the direct implementation from th
 
 After this, the entire Operator/Controller with its configuration is deployed using `make install` and `make run` locally (outside the cluster). To deploy it inside the cluster, use `make docker-build` and `make deploy`. After deploying the contoller, it starts watching the events from the workload and shows it by logs of the Operator/Controller pod. Now, when the .yaml of Cronjob is applied, the logs start updating with the status about and from the Cronjob and now this Operator\Controller will manage and monitor this Cronjob.
 
-_For Reference, the .yaml file of Cronjob does the work of both "cr.yaml" and "operator.yaml" from Operator-SDK._
+However, Webhooks are NOT implemented in this Operator/Controller configuration due to the error "Undefined v1.beta1.Webhook" delivered by "parser.go".
+
+_For reference, the .yaml file of Cronjob does the work of both "cr.yaml" and "operator.yaml" from Operator-SDK._
